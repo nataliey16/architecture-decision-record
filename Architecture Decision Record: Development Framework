@@ -1,1 +1,100 @@
+# Architecture Decision Record: Development Framework
 
+Contents:
+
+- [Summary](#summary)
+  - [Issue](#issue)
+  - [Decision](#decision)
+  - [Status](#status)
+- [Details](#details)
+  - [Assumptions](#assumptions)
+  - [Constraints](#constraints)
+  - [Positions](#positions)
+  - [Argument](#argument)
+  - [Implications](#implications)
+- [Related](#related)
+  - [Related decisions](#related-decisions)
+  - [Related requirements](#related-requirements)
+  - [Related artifacts](#related-artifacts)
+  - [Related principles](#related-principles)
+- [Notes](#notes)
+
+
+## Summary
+
+
+### Issues:
+
+  * Selecting the development framework we are most familiar with for building our
+Android memo app.
+
+
+### Decisions:
+Decided on: React Native
+
+### Status:
+Decided on: React Native
+
+
+## Details:
+
+### Assumptions:
+
+The team is familiar with JavaScript, and we are currently continuing to
+learn various application design aspects of React Native through our courses.
+
+
+### Constraints:
+
+  * The project needs to be completed within a tight timeline, so we require a
+framework that supports rapid development.
+
+  * There is limited time for the team to learn new, complex frameworks from scratch.
+
+  * The framework should support integrating third-party services, like image APIs
+(Unsplash, Pexels, Pixabay).
+
+
+### Positions:
+  
+  * We did not consider any other frameworks because the focus of our course is
+on using React Native.
+
+
+### Argument:
+
+Since our course is centered on React Native, it was a logical decision to
+adopt this framework for our Android memo app.
+
+
+### Implications:
+  
+  * The familiarity gained from the course will allow us to leverage course
+materials and guidance directly in the project.
+
+
+## Related:
+
+
+### Related decisions:
+
+### Related requirements:
+
+  * Integration with third-party image APIs is required for the app's
+wallpaper feature.
+
+
+### Related artifacts:
+
+  * A technical report on the feasibility of cross-platform development with
+React Native.
+
+
+### Related principles:
+
+  * React Native allows for cross-platform development, enabling code
+reuse between Android and potentially iOS in the future, which supports our goal of
+maximizing development efficiency
+
+## Notes:
+Any notes here
