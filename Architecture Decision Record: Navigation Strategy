@@ -1,1 +1,63 @@
-
+Architecture Decision Record: Navigation Strategy
+Summary
+● Issues:
+○ Navigation Strategy
+○ Challenges in deciding an appropriate navigation library for our application
+○ Handle real-time updates
+● Decisions:
+○ Decided on: Firebase
+● Status:
+○ Decided on Firebase. Open to new Database Storage solutions as they arrive.
+Details:
+● Assumptions:
+○ We want to create a visual bookmarking and journaling platform. Enables users
+to design vision boards and sets as widgets according to their own preference,
+allowing for a personalized experience.
+○ Firebase will provide a sturdy and reliable backend solution for data
+synchronization and real-time updates.
+○ Our app will need smooth navigation between screens and widgets
+● Constraints:
+○ Learning and understanding stack-based navigation for the complex integration
+of Firebase.
+○ The navigation system must accommodate real-time data updates without
+disrupting user experience.
+○ The navigation should not negatively impact the performance of the app when
+rendering components, transitioning between screens and loading real-time data.
+○ With project timeline, the team must learn and implement the navigation library
+○ The behavior of our app should offer a consistent and intuitive experience across
+different devices and platforms.
+○ Requirement to support widgets for displaying user-selected images
+● Positions:
+○ React Native Navigation: With React Native as our framework, we will use the
+navigation library @react-navigation/native.
+○ React Navigation’s stack-base provides a Last-Is-First-Out (LIFO) navigation that
+stack screens on top of each other as you navigate through them, making it easy
+to add, maintain and test new navigation routes.
+Team members: Yi-Chen Lin, Gabrielle Alama, and Natalie Yeung
+○ We will be using Firebase for our application’s backend to integrate real-time
+database and storage.
+● Argument:
+○ React Navigation is a well-documented library that provides a stack-based
+navigation approach, and Firebase as the platform is developed by Google which
+will help simplify our backend development with tools like real-time
+synchronization, cloud functions and databases.
+● Implications:
+○ The navigation system supports ease in adding and removing screens.
+○ Firebase integration will need efficient data synchronization and widget
+management with Firebases’ services (Firestore, Firebase Realtime Database
+and Firebase Cloud Functions) to store, fetch, background sync, and update
+real-time widget-related content.
+Related:
+● Related decisions:
+○ The choice of Firebase for database storage supports the navigation and
+development framework decisions, as both rely on real-time data
+synchronization.
+● Related requirements:
+○ Secure user data storage is needed, including personal goals and image
+collections.
+● Related artifacts:
+○ Research Firebase for mobile applications, security and real-time updates.
+● Related principles:
+○ Our team is committed to focus on secure, scalable, data management,
+maintaining a responsive user experience and safeguarding user information.
+Notes:
