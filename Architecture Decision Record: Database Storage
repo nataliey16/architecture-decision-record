@@ -1,1 +1,152 @@
+# Architecture Decision Record: Database Storage
 
+Contents:
+
+- [Summary](#summary)
+  - [Issue](#issue)
+  - [Decision](#decision)
+  - [Status](#status)
+- [Details](#details)
+  - [Assumptions](#assumptions)
+  - [Constraints](#constraints)
+  - [Positions](#positions)
+  - [Argument](#argument)
+  - [Implications](#implications)
+- [Related](#related)
+  - [Related decisions](#related-decisions)
+  - [Related requirements](#related-requirements)
+  - [Related artifacts](#related-artifacts)
+  - [Related principles](#related-principles)
+- [Notes](#notes)
+
+
+## Summary
+
+
+### Issues:
+
+Database storage:
+
+  * We want to securely store user data (e.g., words, image collections, personal
+  goals) and metadata (e.g., timestamps, widget preferences) for our mood board
+  application.
+  
+  * We want a solution that provides fast read/write operations to ensure a
+  responsive user experience as users interact with image libraries and phone
+  widgets.
+
+  * We want a platform that simplifies real-time data synchronization, authentication,
+  and security features to handle sensitive user information such as personal goals
+  and login information.
+
+
+
+### Decisions:
+
+Decided on: Firebase
+
+### Status:
+
+Decided on Firebase. Open to new Database Storage solutions as they arrive.
+
+
+## Details:
+
+### Assumptions:
+
+  * We want to build a secure, modern, and scalable mood board application that
+  provides real-time updates and a fast, reliable user experience.
+  
+  * We want to simplify backend development by using managed services, allowing
+  the team to focus on the frontend and user interface without having to maintain
+  complex backend.
+
+  * We expect that Firebase’s integrated authentication, cloud functions, and
+  real-time database capabilities will streamline the process of managing user
+  accounts and syncing data between devices.
+
+
+### Constraints:
+
+  * Firebase relies on Google Cloud. This means we will depend on their platform,
+  which may limit flexibility if we want to use another provider.
+  
+  * Firebase’s pricing is based on usage, which could increase costs as the data and
+  number of users increase.
+
+  * Real-time synchronization is essential as it is the main feature of our application
+  (e.g., updating widgets and image collections across devices). Therefore,
+  Firebase’s Real-Time Database and Firestore must be able to perform across
+  different traffic conditions.
+
+### Positions:
+  
+  * We considered using local storage for storing user data. This method would
+  provide users immediate access to their mood boards without internet connection
+  and improve offline functionality. The limitation with local storage is security and
+  synchronization across multiple devices.
+  
+  * We considered remote storage options that provide security and real-time
+  synchronization. Remote storage allows users to focus user data in the cloud so
+  that users can access mood boards from any device and changes are synced in
+  real-time. Remote storage also provides greater security including encryption and
+  user authentication for maintaining the safety of user’s information.
+
+  * We considered using no backend service and managing the database,
+  authentication, and synchronization ourselves by building REST APIs and
+  implementing SQL databases such as MySQL or PostgreSQL. These also
+  provide reliable storage and querying capabilities. However, we would need to
+  dedicate additional development to build and manage security, scalability, and
+  real-time updates
+
+
+### Argument:
+  
+  * We eliminated local storage due to its limitations in security and synchronization.
+  There is a risk for data loss and there is a lack of encryption.
+  
+  * Firebase appears to be a viable solution in terms of security and real-time
+  synchronization. Its dynamic model, built-in cloud functions, and authentication
+  will streamline our backend processes.
+  
+
+### Implications:
+  
+  * Using Firebase will ensure we have a secure, scalable, and real-time storage
+  solution for user data. The real-time capabilities allow for immediate updates to
+  mood boards and widgets across devices.
+  
+  * The main limitation will be cost. We may need to monitor usage.
+
+
+
+## Related:
+
+
+### Related decisions:
+ 
+  * Firebase will influence our authentication for handling secure user logins. It may
+  also influence how we structure our API endpoints and manage serverless
+  functions through Firebase Cloud Functions.
+
+
+### Related requirements:
+  
+  * We want a database storage option that is secure and can handle real-time
+  updates to improve user experience. We also require a solution enabling us to
+  quickly launch without the need for a complex backend.
+
+### Related artifacts:
+
+  * This decision will impact the database structure of image uploads and personal
+  goals and words, and rendering widget date to the frontend.
+
+
+### Related principles:
+
+  * We prioritize security when handling sensitive user data and real-time
+  synchronization to ensure data is quickly up to date.
+
+
+## Notes:
+Any notes here
