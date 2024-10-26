@@ -104,19 +104,24 @@ synchronization and real-time updates.
 
 
 ### Related decisions:
-  ○ The choice of Firebase for database storage supports the navigation and
+  
+  * The choice of Firebase for database storage supports the navigation and
   development framework decisions, as both rely on real-time data
   synchronization.
 
 ### Related requirements:
-  ○ Secure user data storage is needed, including personal goals and image
+  
+  * Secure user data storage is needed, including personal goals and image
   collections.
 
 ### Related artifacts:
-  ○ Research Firebase for mobile applications, security and real-time updates.
+  
+  *Research Firebase for mobile applications, security and real-time updates.
+
 
 ### Related principles:
-  ○ Our team is committed to focus on secure, scalable, data management,
+  
+  * Our team is committed to focus on secure, scalable, data management,
   maintaining a responsive user experience and safeguarding user information.
 
 
