@@ -1,9 +1,9 @@
 # Architecture Decision Record: Navigation Strategy
 
-Contents:
+## Contents:
 
 - [Summary](#summary)
-  - [Issue](#issue)
+  - [Issues](#issues)
   - [Decision](#decision)
   - [Status](#status)
 - [Details](#details)
@@ -20,110 +20,74 @@ Contents:
 - [Notes](#notes)
 
 
+
 ## Summary
 
+### Issues
 
-### Issues:
+  * Navigation Strategy: Choosing an approach that balances easy access to main sections and deeper navigation within each section.
+  * Handle real-time updates: Ensuring smooth data flow between screens without compromising app performance.
 
-  * Navigation Strategy
-  * Challenges in deciding an appropriate navigation library for our application
-  * Handle real-time updates
+### Decision
 
+  * Navigation choice: We decided on a nested navigation structure, with Tab Navigation for high-level sections and Stack Navigation within each tab for in-depth navigation.
 
-### Decisions:
-Decided on: Firebase
+### Status
 
-### Status:
-Decided on Firebase. Open to new Database Storage solutions as they arrive.
-
-
-## Details:
-
-### Assumptions:
-
-We want to create a visual bookmarking and journaling platform. Enables users
-to design vision boards and sets as widgets according to their own preference,
-allowing for a personalized experience.
-  
-  *Firebase will provide a sturdy and reliable backend solution for data
-synchronization and real-time updates.
-  
-  *Our app will need smooth navigation between screens and widgets
-
-### Constraints:
-
-    *Learning and understanding stack-based navigation for the complex integration
-  of Firebase.
-
-  * The navigation system must accommodate real-time data updates without
-  disrupting user experience.
-  
-  *The navigation should not negatively impact the performance of the app when
-  rendering components, transitioning between screens and loading real-time data.
-  
-  *With project timeline, the team must learn and implement the navigation library
-  
-  *The behavior of our app should offer a consistent and intuitive experience across
-  different devices and platforms.
-  
-  * Requirement to support widgets for displaying user-selected images
+  * Current Status: Nested navigation using tabs and stacks has been chosen and implemented as the navigation strategy.
 
 
-### Positions:
-  
-  * React Native Navigation: With React Native as our framework, we will use the
-  navigation library @react-navigation/native.
-  
-  * React Navigation’s stack-base provides a Last-Is-First-Out (LIFO) navigation that
-  stack screens on top of each other as you navigate through them, making it easy
-  to add, maintain and test new navigation routes.
-  
-  * We will be using Firebase for our application’s backend to integrate real-time
-  database and storage.
+
+## Details
+
+### Assumptions
+
+  * We aim to create a flexible platform where users can switch between main features while exploring each feature in depth.
+  * Navigation needs to support efficient transitions within each main section while maintaining a user-friendly structure.
+
+### Constraints
+
+  * Ensuring smooth performance as users switch between tabs and navigate within sections.
+  * Providing a consistent and intuitive experience on both Android and iOS platforms.
+
+### Positions
+
+  * **Nested Navigation with Tabs and Stacks:** We’ll use `@react-navigation/bottom-tabs` for main tabs (e.g., Home, Vision Board, Widgets) and Stack Navigation within each tab for detailed screens.
+  * **Backend Integration:** Backend setup will ensure data is available for both tab and stack navigation without disrupting the user experience.
+
+### Argument
+
+  * **User Experience:** Combining tabs and stacks allows users to switch seamlessly between main sections while exploring multiple layers within each section.
+  * **Flexibility:** This setup is easy to expand, letting us add or remove stack screens within each tab without needing major changes.
+  * **Maintainability:** Nested navigation keeps the code organized, as each main tab operates independently while being part of the larger navigation system.
+
+### Implications
+
+  * **Scalability:** Adding or modifying screens within each tab is straightforward.
+  * **Consistent User Flow:** Nested navigation maintains user context within each tab, reducing the need for repeated navigation setup.
+  * **Performance:** This approach minimizes unnecessary re-renders and maintains a smooth experience even with real-time data updates.
 
 
-### Argument:
+## Related
 
-  React Navigation is a well-documented library that provides a stack-based
-  navigation approach, and Firebase as the platform is developed by Google which
-  will help simplify our backend development with tools like real-time
-  synchronization, cloud functions and databases.
+### Related decisions
 
+  * The backend choice supports navigation with efficient data handling.
 
-### Implications:
-  
-  * The navigation system supports ease in adding and removing screens.
-  
-  * Firebase integration will need efficient data synchronization and widget
-  management with Firebases’ services (Firestore, Firebase Realtime Database
-  and Firebase Cloud Functions) to store, fetch, background sync, and update
-  real-time widget-related content.
+### Related requirements
 
+  * Secure data storage and smooth transitions within both tab and stack structures.
 
-## Related:
+### Related artifacts
+
+  * Research documentation on nested navigation in mobile apps.
+
+### Related principles
+
+  * Deliver an intuitive, responsive user interface focused on scalability and maintainability.
 
 
-### Related decisions:
-  
-  * The choice of Firebase for database storage supports the navigation and
-  development framework decisions, as both rely on real-time data
-  synchronization.
 
-### Related requirements:
-  
-  * Secure user data storage is needed, including personal goals and image
-  collections.
+## Notes
 
-### Related artifacts:
-  
-  *Research Firebase for mobile applications, security and real-time updates.
-
-
-### Related principles:
-  
-  * Our team is committed to focus on secure, scalable, data management,
-  maintaining a responsive user experience and safeguarding user information.
-
-
-## Notes:
-Any notes here
+Any notes here.
